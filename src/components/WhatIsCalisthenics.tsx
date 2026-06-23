@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import { Check } from "lucide-react"
 
@@ -10,7 +12,7 @@ const BENEFITS = [
 
 export default function WhatIsCalisthenics() {
   return (
-    <section id="o-que-e-calistenia" className="border-t border-zinc-800/50 px-5 py-16">
+    <section id="o-que-e-calistenia" className="border-t border-zinc-800/50 px-5 py-20 md:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
@@ -47,7 +49,7 @@ export default function WhatIsCalisthenics() {
               alt="Alunos treinando Believe Calistenia"
               width={600}
               height={750}
-              className="aspect-square w-full object-cover md:aspect-[4/5]"
+              className="aspect-[4/5] w-full object-cover"
             />
           </div>
         </div>

@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { label: "Metodologia", href: "#metodologia" },
   { label: "Horários", href: "#horarios" },
   { label: "SGC", href: "#sgc" },
-  { label: "Preços", href: "#experimental" },
+  { label: "Preços", href: "#precos" },
   { label: "Contato", href: "#contato" },
 ]
 
@@ -48,7 +48,7 @@ export default function Navbar() {
             href="https://www.instagram.com/believecalistenia/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex size-9 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-blue-500/10 hover:text-blue-400"
+            className="flex size-11 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-blue-500/10 hover:text-blue-400"
             aria-label="Instagram"
           >
             <InstagramIcon className="size-5" />
@@ -56,28 +56,19 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile controls */}
-        <div className="flex items-center gap-2 sm:hidden">
-          <a
-            href="https://wa.me/5585996995533?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20quero%20agendar%20minha%20aula%20experimental!"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-blue-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-blue-400 active:scale-[0.97]"
-          >
-            <MessageCircle className="size-4" />
-            Agendar Aula
-          </a>
+        <div className="flex items-center gap-1 sm:hidden">
           <a
             href="https://www.instagram.com/believecalistenia/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex size-9 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-blue-500/10 hover:text-blue-400"
+            className="flex size-11 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-blue-500/10 hover:text-blue-400"
             aria-label="Instagram"
           >
             <InstagramIcon className="size-5" />
           </a>
           <button
             onClick={() => setOpen(!open)}
-            className="flex size-9 items-center justify-center rounded-full transition-colors hover:bg-blue-500/10"
+            className="flex size-11 items-center justify-center rounded-full transition-colors hover:bg-blue-500/10"
             aria-label="Abrir menu"
           >
             {open ? <X className="size-5 text-white" /> : <Menu className="size-5 text-white" />}
@@ -86,20 +77,37 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-zinc-800/50 bg-zinc-950 px-5 pb-5 pt-3 sm:hidden">
-          <nav className="flex flex-col gap-1">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm font-medium text-zinc-300 transition-colors hover:bg-blue-500/10 hover:text-blue-400"
-              >
+        <>
+          <div
+            className="fixed inset-0 z-40 bg-black/60 sm:hidden"
+            onClick={() => setOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="relative z-50 border-t border-zinc-800/50 bg-zinc-950 px-5 pb-6 pt-3 sm:hidden">
+            <nav className="flex flex-col gap-1">
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="flex min-h-[44px] items-center rounded-xl px-4 py-2 text-sm font-medium text-zinc-300 transition-colors hover:bg-blue-500/10 hover:text-blue-400"
+                >
                 {link.label}
               </a>
             ))}
+            <a
+              href="https://wa.me/5585996995533?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20quero%20agendar%20minha%20aula%20experimental!"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-3 flex items-center justify-center gap-2 rounded-full bg-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-blue-400 active:scale-[0.97]"
+            >
+              <MessageCircle className="size-4" />
+              Agendar Aula Experimental
+            </a>
           </nav>
-        </div>
+          </div>
+        </>
       )}
     </header>
   )

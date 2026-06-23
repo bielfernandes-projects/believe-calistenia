@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { MessageCircle, Gift } from "lucide-react"
+import { MessageCircle, Gift, ChevronDown } from "lucide-react"
 import { pricingData } from "@/data/mock"
 
 const EXPERIMENTAL_URL =
@@ -54,7 +54,8 @@ const mergedPlans: MergedPlan[] = [
 ]
 
 function PlanCard({ plan }: { plan: MergedPlan }) {
-  const hasBoth = plan.padrao && plan.credito
+  const [showCredito, setShowCredito] = useState(false)
+  const hasBoth = !!(plan.padrao && plan.credito)
 
   return (
     <div
@@ -81,27 +82,40 @@ function PlanCard({ plan }: { plan: MergedPlan }) {
             <span className="text-sm text-zinc-500">/mês</span>
           </div>
           <p className="mt-0.5 text-xs text-zinc-500">
-            {plan.padrao.installments}x de {fmtPrice(plan.padrao.installmentPrice)} — Padrão
+            {plan.padrao.installments}x de {fmtPrice(plan.padrao.installmentPrice)}
           </p>
           {plan.padrao.discountPercent > 0 && (
             <p className="mt-0.5 text-xs font-medium text-emerald-400">
-              Desconto de {plan.padrao.discountPercent}%
+              -{plan.padrao.discountPercent}%
             </p>
           )}
         </div>
       )}
 
       {hasBoth && (
-        <div className="mt-2 border-t border-zinc-800 pt-2">
-          <p className="text-xs text-zinc-500">
-            ou {plan.credito!.installments}x de{" "}
-            <span className="text-zinc-300">{fmtPrice(plan.credito!.installmentPrice)}</span>
-            /mês — Crédito Recorrente
-          </p>
-          {plan.credito!.discountPercent > 0 && (
-            <p className="mt-0.5 text-xs font-medium text-emerald-400">
-              Desconto de {plan.credito!.discountPercent}%
-            </p>
+        <div className="mt-2">
+          <button
+            onClick={() => setShowCredito(!showCredito)}
+            className="flex w-full items-center gap-2 rounded-lg border border-zinc-800 px-4 py-2 text-xs text-zinc-500 transition-colors hover:border-zinc-700 hover:text-zinc-300"
+          >
+            <span className="flex-1 text-left">Crédito Recorrente disponível</span>
+            <ChevronDown
+              className={`size-3.5 transition-transform ${showCredito ? "rotate-180" : ""}`}
+            />
+          </button>
+          {showCredito && (
+            <div className="mt-2 rounded-lg border border-zinc-800 bg-zinc-900/80 p-3">
+              <p className="text-xs text-zinc-400">
+                {plan.credito!.installments}x de{" "}
+                <span className="text-zinc-200">{fmtPrice(plan.credito!.installmentPrice)}</span>
+                /mês
+              </p>
+              {plan.credito!.discountPercent > 0 && (
+                <p className="mt-0.5 text-xs font-medium text-emerald-400">
+                  -{plan.credito!.discountPercent}%
+                </p>
+              )}
+            </div>
           )}
         </div>
       )}
@@ -143,7 +157,7 @@ export default function PricingSection() {
   return (
     <section
       id="precos"
-      className="px-5 py-20"
+      className="px-5 py-20 md:py-24"
     >
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">

@@ -17,7 +17,7 @@ export default function GraduationAccordion() {
   const [openId, setOpenId] = useState<string | null>(null)
 
   return (
-    <section id="sgc" className="px-5 py-16">
+    <section id="sgc" className="px-5 py-20 md:py-24">
       <div className="mx-auto max-w-4xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-balance text-3xl font-bold tracking-tight text-white md:text-4xl">
@@ -95,10 +95,10 @@ export default function GraduationAccordion() {
                                   href={ex.videoUrl}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex size-7 items-center justify-center rounded-full bg-zinc-800 text-white transition-colors hover:bg-blue-500"
+                                  className="flex size-11 items-center justify-center rounded-full bg-zinc-800 text-white transition-colors hover:bg-blue-500"
                                   aria-label={`Ver vídeo: ${ex.name}`}
                                 >
-                                  <Play className="size-3.5" />
+                                  <Play className="size-4" />
                                 </a>
                               </div>
                             </div>

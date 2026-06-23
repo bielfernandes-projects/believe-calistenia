@@ -40,6 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# tooling
+.codex/
+.impeccable/critique/
+
 # impeccable-live-ignore-start
 .impeccable/hook.cache.json
 .impeccable/hook.pending.json

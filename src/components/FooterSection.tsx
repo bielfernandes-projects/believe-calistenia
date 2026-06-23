@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import { MessageCircle, MapPin } from "lucide-react"
 import InstagramIcon from "@/components/InstagramIcon"

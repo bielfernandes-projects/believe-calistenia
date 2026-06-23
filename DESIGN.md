@@ -1,6 +1,6 @@
 ---
 name: Believe Calistenia
-description: Landing page institucional da Believe Calistenia — dark theme, método SGC, conversão via WhatsApp
+description: Landing page institucional da Believe Calistenia — dark theme, método SGC, conversão via WhatsApp. Mobile refinado com touch targets WCAG, backdrop dismiss, preços simplificados.
 colors:
   background: "#09090b"
   foreground: "#fafafa"
@@ -173,18 +173,19 @@ Profundidade é comunicada através de sombras ambientes leves e camadas tonais,
 - **Background:** zinc-900 (#18181b) com opacidade 50% (bg-zinc-900/50).
 - **Border:** 1px solid zinc-800/50. Hover: border-zinc-600.
 - **Highlighted Border:** 1px solid blue-500/50 (apenas para plano "Mais popular").
-- **Internal Padding:** 24px (p-6).
+- **Internal Padding:** 20px no mobile, 24px no desktop (p-5 sm:p-6).
 - **Shadow:** shadow-md em repouso (ver Elevation).
 
 ### Navigation
 - **Container:** Fixed topo, border-bottom zinc-800/50, bg-zinc-950/70 com backdrop-blur-lg. Z-index 50.
 - **Desktop:** Links em row com ghost buttons (hover bg-zinc-800). CTA primário à direita. Instagram como ícone avulso.
-- **Mobile:** Nav links em coluna vertical, CTA simplificado ("Agendar Aula"), Instagram e hamburger à direita. Menu abre abaixo do header com bg-zinc-950 sólido.
+- **Mobile:** Nav mostra apenas logo, Instagram e hamburger. CTA "Agendar Aula Experimental" fica dentro do menu hamburguer, como último item destacado (azul). Toque no backdrop escuro fecha o menu (backdrop dismiss). Touch targets: mínimo 44px (size-11).
 
 ### Accordion
 - **Header:** Padding 16px 20px, texto branco sem peso. Chevron rotate 180° no estado aberto.
 - **Body:** Border-top zinc-800 para separar do header. Padding 16px 20px.
 - **Categories:** Labels monoespaçadas (uppercase, tracking-wider, zinc-500). Exercícios em grid 2 colunas no desktop.
+- **Video buttons:** 44px (size-11), rounded-full, bg-zinc-80, hover azul.
 - **Graduation disclaimer:** Texto zinc-600 em 12px. Oculto no nível A6.
 
 ### Tags / Badges
@@ -192,6 +193,21 @@ Profundidade é comunicada através de sombras ambientes leves e camadas tonais,
 - **Graduation:**
   - A1 → zinc, A2 → yellow, A3 → orange, A4 → green, A5 → blue, A6 → purple.
 - **Pricing badges:** Background blue sólido, texto branco, shadow-sm azul. Posicionados absolutos no topo do card.
+
+### Pricing
+- **Experimental card:** Bloco destacado com fundo azul tintado, badge "Aula Experimental" uppercase, valor R$ 40 em destaque, bônus em amber.
+- **Plan cards:** 4 planos em grid responsivo (1 col mobile, 2 col md, 4 col lg). "Crédito Recorrente" oculto por padrão no mobile — toggle expansível para evitar sobrecarga de informação. Badge "Mais popular" no plano Trimestral.
+- **CTA:** Botão primário "Agendar Aula Experimental" no card experimental; botão secundário "Quero mais informações" nos planos.
+
+### FAB (WhatsApp)
+- **Position:** fixed bottom-5 right-5 (bottom-6 right-6 no desktop).
+- **Size:** 56px (size-14), 64px no desktop (size-16).
+- **Animation:** Ping pulsante nos primeiros 3 segundos após montagem, depois desliga. Hover desativa o ping. `prefers-reduced-motion` respeitado via CSS global.
+- **Touch target:** 56px ≥ 44px mínimo WCAG.
+
+### Section Spacing
+- **Standard:** py-20 no mobile, md:py-24 no desktop. Consistente em todas as seções (WhatIsCalisthenics, Methodology, Schedule, Graduation, Testimonials, Pricing, FAQ).
+- **Hero:** min-h-screen com pt-20. Radial gradient decorativo.
 
 ### Inputs / Fields (não implementado — página não tem formulários)
 Todo input proposals devem seguir o estilo de botão secundário: border 1px zinc-700, bg transparente, texto zinc-300, rounded-lg 8px.
@@ -202,10 +218,12 @@ Todo input proposals devem seguir o estilo de botão secundário: border 1px zin
 - **Do** usar azul (#0ea5e9) exclusivamente para interação e destaque semântico.
 - **Do** manter dark mode fixo — fundo #09090b até o fim.
 - **Do** usar rounded-2xl (16px) para cards e contêineres. rounded-full apenas para botões, tags e badges.
-- **Do** usar py-24 (96px) entre seções para respirar.
+- **Do** usar py-20 no mobile, md:py-24 entre seções para respirar.
 - **Do** usar sombras ambientes leves (shadow-md/lg) em cards e CTAs.
 - **Do** usar a mesma família de fonte (Geist Sans) em toda a hierarquia.
 - **Do** prefixar qualquer imagem com `next/image` para lazy loading automático.
+- **Do** manter touch targets ≥ 44px no mobile para conformidade WCAG.
+- **Do** limitar animações perpétuas (como o ping do FAB) a 3 segundos para reduzir desconforto.
 
 ### Don't:
 - **Don't** usar border-left ou border-right > 1px como acento colorido em cards.

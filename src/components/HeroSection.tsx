@@ -1,3 +1,5 @@
+"use client"
+
 import { Users, MessageCircle } from "lucide-react"
 
 const WHATSAPP_URL =

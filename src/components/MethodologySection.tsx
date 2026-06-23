@@ -34,7 +34,7 @@ export default function MethodologySection() {
   return (
     <section
       id="metodologia"
-      className="px-5 py-16"
+      className="px-5 py-20 md:py-24"
     >
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
@@ -58,7 +58,7 @@ export default function MethodologySection() {
             return (
               <div
                 key={p.title}
-                className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 text-center transition-all hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/5"
+                className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 sm:p-6 text-center transition-all hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/5 active:scale-[0.98]"
               >
                 <div className={`mx-auto flex size-12 items-center justify-center rounded-full ${
                   isHighlighted ? "bg-blue-500/20" : "bg-blue-500/10"
@@ -76,15 +76,21 @@ export default function MethodologySection() {
           })}
         </div>
 
-        <div className="mt-14 space-y-3 text-center text-sm leading-relaxed text-zinc-500 max-w-2xl mx-auto">
-          <p>
-            <strong className="text-zinc-300">Segunda, Quarta e Sexta</strong> — treino de <span className="text-blue-400">calistenia pura</span> nivelada visando o aprendizado das skills e da melhora do condicionamento.
-          </p>
-          <p>
-            <strong className="text-zinc-300">Terça e Quinta</strong> — aula{" "}
-            <span className="text-blue-400">Livre / Personalizado / Mobilidade</span>,
-            com foco em desenvolvimento individual.
-          </p>
+        <div className="mt-14 space-y-6 text-center max-w-2xl mx-auto">
+          <div>
+            <p className="text-sm font-semibold text-zinc-200">Segunda, Quarta e Sexta</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-zinc-500">
+              treino de <span className="text-blue-400">calistenia pura</span> — nivelada, focada
+              no aprendizado das skills e na melhora do condicionamento.
+            </p>
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-zinc-200">Terça e Quinta</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-zinc-500">
+              aula <span className="text-blue-400">Livre / Personalizado / Mobilidade</span>,
+              com foco em desenvolvimento individual.
+            </p>
+          </div>
         </div>
 
         <div className="mt-16 flex justify-center">

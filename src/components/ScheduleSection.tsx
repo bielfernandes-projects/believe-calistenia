@@ -1,3 +1,5 @@
+"use client"
+
 import { MessageCircle, Clock } from "lucide-react"
 import { scheduleData } from "@/data/mock"
 
@@ -15,7 +17,7 @@ export default function ScheduleSection() {
   return (
     <section
       id="horarios"
-      className="border-t border-zinc-800/50 px-5 py-16"
+      className="border-t border-zinc-800/50 px-5 py-20 md:py-24"
     >
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">

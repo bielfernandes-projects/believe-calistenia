@@ -46,7 +46,7 @@ export default function TestimonialsSection() {
   }, [])
 
   return (
-    <section className="px-5 py-16">
+    <section className="px-5 py-20 md:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-balance text-3xl font-bold tracking-tight text-white md:text-4xl">
@@ -61,7 +61,7 @@ export default function TestimonialsSection() {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.name}
-              className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/5"
+              className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 sm:p-6 transition-all hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/5"
             >
               <div className="flex items-center gap-1 text-amber-400">
                 {Array.from({ length: 5 }).map((_, i) => (
