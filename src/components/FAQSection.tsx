@@ -30,11 +30,30 @@ const FAQS = [
   },
 ]
 
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+}
+
 export default function FAQSection() {
   const [openId, setOpenId] = useState<number | null>(null)
 
   return (
     <section className="border-t border-zinc-800/50 px-5 py-20 md:py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(FAQ_SCHEMA).replace(/</g, "\\u003c"),
+        }}
+      />
       <div className="mx-auto max-w-3xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-balance text-3xl font-bold tracking-tight text-white md:text-4xl">

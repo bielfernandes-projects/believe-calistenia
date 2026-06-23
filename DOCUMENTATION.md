@@ -26,13 +26,24 @@ Landing page institucional da Believe Calistenia, uma escola de calistenia em Fo
 - `WhatsAppFab` — FAB flutuante com efeito ping, link direto para WhatsApp
 - `InstagramIcon` — Ícone SVG do Instagram
 
+## SEO
+
+- **robots.ts** — Gera `/robots.txt` permitindo todos os crawlers, com link pro sitemap
+- **sitemap.ts** — Gera `/sitemap.xml` com a URL principal (single page)
+- **layout.tsx** — Metadata completa: title com localização ("Calistenia em Fortaleza"), description, canonical, OG tags, Twitter Card, robots meta
+- **Schema LocalBusiness** — Injetado via `<script>` no layout: endereço, telefone, horários, Instagram/YouTube
+- **Schema FAQ** — Injetado via `<script>` no FAQSection: cada pergunta/resposta vira `Question`/`Answer` estruturado
+- **Hero H1** — Inclui "Calistenia em Fortaleza" como keyword principal
+
 ## Estrutura de Arquivos
 
 ```
 src/
 ├── app/
 │   ├── globals.css          # Tailwind v4 + keyframes + utilities
-│   ├── layout.tsx           # Root layout com fonts e metadata
+│   ├── layout.tsx           # Root layout com fonts, metadata, schema LocalBusiness
+│   ├── robots.ts            # Gera robots.txt
+│   ├── sitemap.ts           # Gera sitemap.xml
 │   └── page.tsx             # Página única com todas as seções
 ├── components/
 │   ├── HeroSection.tsx
@@ -43,7 +54,7 @@ src/
 │   ├── GraduationAccordion.tsx
 │   ├── TestimonialsSection.tsx
 │   ├── PricingSection.tsx
-│   ├── FAQSection.tsx
+│   ├── FAQSection.tsx       # Inclui schema FAQ (JSON-LD)
 │   ├── FooterSection.tsx
 │   ├── WhatsAppFab.tsx
 │   └── InstagramIcon.tsx

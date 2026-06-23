@@ -18,7 +18,8 @@ export default function HeroSection() {
 
         <h1 className="animate-fade-up animate-fade-up-d1 text-balance text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl md:leading-tight">
           Fuja da rotina da{" "}
-          <span className="text-blue-500">academia convencional</span>
+          <span className="text-blue-500">academia convencional</span>{" "}
+          com a Calistenia em Fortaleza
         </h1>
 
         <p className="animate-fade-up animate-fade-up-d2 mt-5 max-w-xl text-body text-zinc-400 md:text-lg">
